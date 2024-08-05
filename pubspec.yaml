@@ -1,5 +1,5 @@
 name: khp
-description: "A new Flutter project."
+description: "A Sample Project for KHP Informatik"
 publish_to: 'none'
 version: 0.1.0
 
@@ -16,5 +16,96 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^3.0.0
 
+
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/img/
+    - assets/logo/
+
+  fonts:
+  - family: Poppins
+    fonts:
+      - asset: assets/fonts/Poppins-Black.ttf
+        weight: 900 
+      - asset: assets/fonts/Poppins-ExtraBold.ttf
+        weight: 800 
+      - asset: assets/fonts/Poppins-Bold.ttf
+        weight: 700 
+      - asset: assets/fonts/Poppins-SemiBold.ttf
+        weight: 600 
+      - asset: assets/fonts/Poppins-Medium.ttf
+        weight: 500 
+      - asset: assets/fonts/Poppins-Regular.ttf
+        weight: 400 
+      - asset: assets/fonts/Poppins-Light.ttf
+        weight: 300 
+      - asset: assets/fonts/Poppins-ExtraLight.ttf
+        weight: 200 
+      - asset: assets/fonts/Poppins-Thin.ttf
+        weight: 100 
+      # ITALIC 
+      - asset: assets/fonts/Poppins-BlackItalic.ttf
+        weight: 900
+        style: italic
+      - asset: assets/fonts/Poppins-ExtraBoldItalic.ttf
+        weight: 800
+        style: italic
+      - asset: assets/fonts/Poppins-BoldItalic.ttf
+        weight: 700
+        style: italic
+      - asset: assets/fonts/Poppins-SemiBoldItalic.ttf
+        weight: 600
+        style: italic
+      - asset: assets/fonts/Poppins-MediumItalic.ttf
+        weight: 500
+        style: italic
+      - asset: assets/fonts/Poppins-Italic.ttf
+        weight: 400
+        style: italic
+      - asset: assets/fonts/Poppins-LightItalic.ttf
+        weight: 300
+        style: italic
+      - asset: assets/fonts/Poppins-ExtraLightItalic.ttf
+        weight: 200
+        style: italic
+      - asset: assets/fonts/Poppins-ThinItalic.ttf
+        weight: 100
+        style: italic
+  
+  - family: Mont
+    fonts:
+      - asset: assets/fonts/Mont-Black.ttf
+        weight: 900
+      - asset: assets/fonts/Mont-Heavy.ttf
+        weight: 800
+      - asset: assets/fonts/Mont-Bold.ttf
+        weight: 700
+      - asset: assets/fonts/Mont-Semibold.ttf
+        weight: 600
+      - asset: assets/fonts/Mont-Regular.ttf
+        weight: 400
+      - asset: assets/fonts/Mont-Light.ttf
+        weight: 300
+      - asset: assets/fonts/Mont-ExtraLight.ttf
+        weight: 200
+      - asset: assets/fonts/Mont-Thin.ttf
+        weight: 100
+      # ITALIC
+      - asset: assets/fonts/Mont-Black-Italic.ttf
+        weight: 900
+      - asset: assets/fonts/Mont-Heavy-Italic.ttf
+        weight: 800
+      - asset: assets/fonts/Mont-Bold-Italic.ttf
+        weight: 700
+      - asset: assets/fonts/Mont-Semibold-Italic.ttf
+        weight: 600
+      - asset: assets/fonts/Mont-Regular-Italic.ttf
+        weight: 400
+      - asset: assets/fonts/Mont-Light-Italic.ttf
+        weight: 300
+      - asset: assets/fonts/Mont-ExtraLight-Italic.ttf
+        weight: 200
+      - asset: assets/fonts/Mont-Thin-Italic.ttf
+        weight: 100

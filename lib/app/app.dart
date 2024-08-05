@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:khp/features/home/home_page.dart';
 
 class AppWidget extends StatefulWidget {
   const AppWidget({super.key});
@@ -13,11 +14,7 @@ class _AppWidgetState extends State<AppWidget> {
     return const MaterialApp(
       title: 'KHP Sample Project',
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+      home: HomePage(),
     );
   }
 }

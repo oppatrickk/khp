@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:khp/components/navigation/bottom_navigation_bar.dart';
 import 'package:khp/constants/app_colors.dart';
+import 'package:khp/features/calendar/calendar_page.dart';
+import 'package:khp/features/camera/camera_page.dart';
+import 'package:khp/features/gallery/gallery_page.dart';
 import 'package:khp/features/home/home_page.dart';
 
 class Pagination extends StatefulWidget {
@@ -24,15 +26,9 @@ class _PaginationState extends State<Pagination> {
         onPageChanged: (int value) => setState(() => _selectedPage = value),
         children: const <Widget>[
           HomePage(),
-          Center(
-            child: Text('Page 2'),
-          ),
-          Center(
-            child: Text('Page 3'),
-          ),
-          Center(
-            child: Text('Page 3'),
-          ),
+          GalleryPage(),
+          CalendarPage(),
+          CameraPage(),
         ],
       ),
       backgroundColor: AppColors.primary,
@@ -45,6 +41,8 @@ class _PaginationState extends State<Pagination> {
           _pageController.jumpToPage(index);
         },
       ),
+
+      // TODO(): Add animation
     );
   }
 }

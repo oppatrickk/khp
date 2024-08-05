@@ -1,2 +1,3 @@
 # khp
-Sample Project for KHP Informatik
+
+A new Flutter project.

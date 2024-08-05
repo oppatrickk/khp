@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:khp/components/navigation/top_app_bar.dart';
 import 'package:khp/constants/app_colors.dart';
+import 'package:table_calendar/table_calendar.dart';
 
 class CalendarPage extends StatelessWidget {
   const CalendarPage({super.key});
@@ -23,18 +24,16 @@ class CalendarPage extends StatelessWidget {
             ),
           ),
           width: MediaQuery.of(context).size.width,
-          child: const Padding(
-            padding: EdgeInsets.all(32),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  'This is the Calendar page.',
-                  style: TextStyle(
-                    fontSize: 12,
-                  ),
-                ),
-              ],
+          child: Padding(
+            padding: const EdgeInsets.all(32),
+            child: TableCalendar<dynamic>(
+              firstDay: DateTime.utc(2024, 1, 1),
+              lastDay: DateTime.utc(2024, 12, 31),
+              focusedDay: DateTime.now(),
+              headerStyle: const HeaderStyle(
+                titleCentered: true,
+                formatButtonVisible: false,
+              ),
             ),
           ),
         ),

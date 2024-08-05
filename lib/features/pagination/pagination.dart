@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:khp/components/navigation/bottom_navigation_bar.dart';
 import 'package:khp/constants/app_colors.dart';
+import 'package:khp/features/home/home_page.dart';
 
 class Pagination extends StatefulWidget {
   const Pagination({super.key});
@@ -22,9 +23,7 @@ class _PaginationState extends State<Pagination> {
         controller: _pageController,
         onPageChanged: (int value) => setState(() => _selectedPage = value),
         children: const <Widget>[
-          Center(
-            child: Text('Page 1'),
-          ),
+          HomePage(),
           Center(
             child: Text('Page 2'),
           ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:khp/constants/app_colors.dart';
-import 'package:khp/features/home/home_page.dart';
+import 'package:khp/features/pagination/pagination.dart';
 
 class AppWidget extends StatefulWidget {
   const AppWidget({super.key});
@@ -15,8 +15,8 @@ class _AppWidgetState extends State<AppWidget> {
     return MaterialApp(
       title: 'KHP Sample Project',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary)),
-      home: const HomePage(),
+      theme: ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary), fontFamily: 'Poppins'),
+      home: const Pagination(),
     );
   }
 }

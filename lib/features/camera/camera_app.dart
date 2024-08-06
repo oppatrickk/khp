@@ -1,8 +1,6 @@
 import 'dart:io';
-
 import 'package:camerawesome/camerawesome_plugin.dart';
 import 'package:camerawesome/pigeon.dart';
-import 'package:cross_file/cross_file.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -38,7 +36,7 @@ class CameraApp extends StatelessWidget {
             exifPreferences: ExifPreferences(saveGPSLocation: false),
           ),
           sensorConfig: SensorConfig.single(
-            sensor: Sensor.position(SensorPosition.back),
+            sensor: Sensor.position(SensorPosition.front),
             flashMode: FlashMode.none,
             aspectRatio: CameraAspectRatios.ratio_16_9,
             zoom: 0.0,
@@ -49,17 +47,9 @@ class CameraApp extends StatelessWidget {
           onMediaTap: (MediaCapture mediaCapture) {
             mediaCapture.captureRequest.when(
               single: (SingleCaptureRequest single) {
-                // debugPrint('single: ${single.file?.path}');
-                // single.file?.open();
-
                 Navigator.pop(context);
               },
               multiple: (MultipleCaptureRequest multiple) {
-                multiple.fileBySensor.forEach((Sensor key, XFile? value) {
-                  // debugPrint('multiple file taken: $key ${value?.path}');
-                  // value?.open();
-                });
-
                 Navigator.pop(context);
               },
             );

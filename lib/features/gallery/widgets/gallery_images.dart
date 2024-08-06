@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:khp/constants/app_text.dart';
 import 'package:khp/features/gallery/widgets/gallery_preview.dart';
-import 'package:khp/constants/app_colors.dart'; // Ensure this import for lightColorScheme
+import 'package:khp/constants/app_colors.dart';
 
 class GalleryImages extends StatefulWidget {
   const GalleryImages({

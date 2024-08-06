@@ -8,30 +8,30 @@ class HomeContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        decoration: const BoxDecoration(
-          color: AppColors.background,
-          borderRadius: BorderRadius.only(
+        decoration: BoxDecoration(
+          color: lightColorScheme.background,
+          borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(32),
             topRight: Radius.circular(32),
           ),
         ),
         width: MediaQuery.of(context).size.width,
-        child: const Padding(
-          padding: EdgeInsets.all(32),
+        child: Padding(
+          padding: const EdgeInsets.all(32),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
                 'Welcome',
                 style: TextStyle(
-                  color: AppColors.tertiary,
+                  color: lightColorScheme.tertiary,
                   fontSize: 20,
                   fontWeight: FontWeight.w800,
                   fontFamily: 'Mont',
                 ),
               ),
-              SizedBox(height: 8),
-              Text(
+              const SizedBox(height: 8),
+              const Text(
                 'This is the home page.',
                 style: TextStyle(
                   fontSize: 12,

@@ -24,7 +24,7 @@ class TopAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       leading: Icon(icon),
-      backgroundColor: AppColors.primary,
+      backgroundColor: lightColorScheme.primary,
       foregroundColor: Colors.white,
       titleSpacing: 0,
     );

@@ -1,12 +1,29 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
-class AppColors {
-  // * Non initable class
-  const AppColors._();
-
-  static const Color primary = Color(0xFF2451B6);
-  static const Color secondary = Color(0xFFF4C542);
-  static const Color tertiary = Color(0xFF2C3E50);
-  static const Color background = Color(0xFFE1E8F0);
-  static const Color surface = Color(0xFFF0F4FA);
-}
+const ColorScheme lightColorScheme = ColorScheme(
+  brightness: Brightness.light,
+  primary: Color(0xFF2451B6),
+  onPrimary: Color(0xFFFFFFFF),
+  primaryContainer: Color(0xFFD1E3FF),
+  onPrimaryContainer: Color(0xFF001A72),
+  secondary: Color(0xFFF4C542),
+  onSecondary: Color(0xFF2451B6),
+  tertiary: Color(0xFF2C3E50),
+  onTertiary: Color(0xFFFFFFFF),
+  error: Color(0xFFB00020),
+  onError: Color(0xFFFFFFFF),
+  background: Color(0xFFE1E8F0),
+  onBackground: Color(0xFF1A1A1A),
+  surface: Color(0xFFF0F4FA),
+  onSurface: Color(0xFF2C3E50),
+  surfaceVariant: Color(0xFFD0DCE8),
+  onSurfaceVariant: Color(0xFF434A50),
+  outline: Color(0xFF737373),
+  outlineVariant: Color(0xFFC4C4C4),
+  shadow: Color(0xFF000000),
+  scrim: Color(0xFF000000),
+  inverseSurface: Color(0xFF303030),
+  onInverseSurface: Color(0xFFE0E0E0),
+  inversePrimary: Color(0xFF83A6FF),
+  surfaceTint: Color(0xFF2451B6),
+);

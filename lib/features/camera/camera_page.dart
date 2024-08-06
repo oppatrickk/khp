@@ -12,12 +12,12 @@ class CameraPage extends StatelessWidget {
         title: 'Camera',
         icon: Icons.camera_alt_rounded,
       ),
-      backgroundColor: AppColors.primary,
+      backgroundColor: lightColorScheme.primary,
       body: Expanded(
         child: Container(
-          decoration: const BoxDecoration(
-            color: AppColors.background,
-            borderRadius: BorderRadius.only(
+          decoration: BoxDecoration(
+            color: lightColorScheme.background,
+            borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(24),
               topRight: Radius.circular(24),
             ),
@@ -32,10 +32,10 @@ class CameraPage extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    const Text(
+                    Text(
                       'Recent',
                       style: TextStyle(
-                        color: AppColors.tertiary,
+                        color: lightColorScheme.tertiary,
                         fontSize: 20,
                         fontWeight: FontWeight.w800,
                         fontFamily: 'Mont',
@@ -45,7 +45,7 @@ class CameraPage extends StatelessWidget {
                     Container(
                       decoration: BoxDecoration(
                         border: Border.all(
-                          color: AppColors.tertiary,
+                          color: lightColorScheme.tertiary,
                           width: 0.5,
                         ),
                         borderRadius: const BorderRadius.all(Radius.circular(16)),
@@ -69,20 +69,20 @@ class CameraPage extends StatelessWidget {
                 ),
               ),
               Container(
-                decoration: const BoxDecoration(
-                  color: AppColors.surface,
-                  borderRadius: BorderRadius.only(
+                decoration: BoxDecoration(
+                  color: lightColorScheme.surface,
+                  borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(24),
                     topRight: Radius.circular(24),
                   ),
                 ),
                 width: MediaQuery.of(context).size.width,
                 child: Padding(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
                   child: FilledButton(
                     onPressed: () {},
                     style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all<Color>(AppColors.secondary),
+                      backgroundColor: MaterialStateProperty.all<Color>(lightColorScheme.secondary),
                     ),
                     child: const Row(
                       mainAxisAlignment: MainAxisAlignment.center,

@@ -15,7 +15,12 @@ class _AppWidgetState extends State<AppWidget> {
     return MaterialApp(
       title: 'KHP Sample Project',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary), fontFamily: 'Poppins'),
+      theme: ThemeData(
+        useMaterial3: true,
+        colorScheme: lightColorScheme,
+        fontFamily: 'Poppins',
+        brightness: Brightness.light,
+      ),
       home: const Pagination(),
     );
   }

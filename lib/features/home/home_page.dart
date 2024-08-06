@@ -14,13 +14,13 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: TopAppBar(
+    return Scaffold(
+      appBar: const TopAppBar(
         title: 'Home',
         icon: Icons.home_rounded,
       ),
-      backgroundColor: AppColors.primary,
-      body: Column(
+      backgroundColor: lightColorScheme.primary,
+      body: const Column(
         children: <Widget>[
           HomeCard(),
           HomeContent(),

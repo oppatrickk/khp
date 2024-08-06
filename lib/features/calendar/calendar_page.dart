@@ -13,12 +13,12 @@ class CalendarPage extends StatelessWidget {
         title: 'Calendar',
         icon: Icons.calendar_month_rounded,
       ),
-      backgroundColor: AppColors.primary,
+      backgroundColor: lightColorScheme.primary,
       body: Expanded(
         child: Container(
-          decoration: const BoxDecoration(
-            color: AppColors.background,
-            borderRadius: BorderRadius.only(
+          decoration: BoxDecoration(
+            color: lightColorScheme.background,
+            borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(24),
               topRight: Radius.circular(24),
             ),

@@ -31,7 +31,7 @@ class _PaginationState extends State<Pagination> {
           CameraPage(),
         ],
       ),
-      backgroundColor: AppColors.primary,
+      backgroundColor: lightColorScheme.primary,
       bottomNavigationBar: BottomNavBar(
         selectedIndex: _selectedPage,
         onDestinationSelected: (int index) {

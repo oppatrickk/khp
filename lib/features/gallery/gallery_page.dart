@@ -12,12 +12,12 @@ class GalleryPage extends StatelessWidget {
         title: 'Gallery',
         icon: Icons.photo_size_select_actual_rounded,
       ),
-      backgroundColor: AppColors.primary,
+      backgroundColor: lightColorScheme.primary,
       body: Expanded(
         child: Container(
-          decoration: const BoxDecoration(
-            color: AppColors.background,
-            borderRadius: BorderRadius.only(
+          decoration: BoxDecoration(
+            color: lightColorScheme.background,
+            borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(24),
               topRight: Radius.circular(24),
             ),
@@ -32,10 +32,10 @@ class GalleryPage extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    const Text(
+                    Text(
                       'Images',
                       style: TextStyle(
-                        color: AppColors.tertiary,
+                        color: lightColorScheme.tertiary,
                         fontSize: 20,
                         fontWeight: FontWeight.w800,
                         fontFamily: 'Mont',
@@ -45,18 +45,22 @@ class GalleryPage extends StatelessWidget {
                     Container(
                       decoration: BoxDecoration(
                         border: Border.all(
-                          color: AppColors.tertiary,
+                          color: lightColorScheme.tertiary,
                           width: 0.5,
                         ),
                         borderRadius: const BorderRadius.all(Radius.circular(16)),
                       ),
                       height: 256,
                       width: MediaQuery.of(context).size.width,
-                      child: const Column(
+                      child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          Icon(Icons.landscape_rounded, size: 128),
-                          Text('No Saved Images Yet'),
+                          Icon(
+                            Icons.landscape_rounded,
+                            size: 128,
+                            color: lightColorScheme.tertiary,
+                          ),
+                          const Text('No Saved Images Yet'),
                         ],
                       ),
                     ),

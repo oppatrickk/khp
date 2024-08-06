@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:khp/constants/app_colors.dart';
 import 'package:khp/constants/app_text.dart';
+import 'package:khp/features/camera/camera_app.dart';
 
 class GalleryNull extends StatelessWidget {
   const GalleryNull({
@@ -10,7 +11,7 @@ class GalleryNull extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
+      padding: const EdgeInsets.symmetric(vertical: 32),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -54,7 +55,14 @@ class GalleryNull extends StatelessWidget {
           const SizedBox(height: 32),
           Center(
             child: FilledButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (BuildContext context) => const CameraApp(),
+                  ),
+                );
+              },
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Text(

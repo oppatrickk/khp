@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:khp/constants/app_colors.dart';
 import 'package:khp/constants/app_text.dart';
+import 'package:khp/features/camera/camera_app.dart';
 
 class CameraButton extends StatelessWidget {
   const CameraButton({
@@ -21,7 +22,14 @@ class CameraButton extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
         child: FilledButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute<void>(
+                builder: (BuildContext context) => const CameraApp(),
+              ),
+            );
+          },
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all<Color>(lightColorScheme.secondary),
           ),

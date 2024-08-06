@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:khp/constants/app_colors.dart';
+import 'package:khp/constants/app_text.dart';
 
 class HomeContent extends StatelessWidget {
   const HomeContent({super.key});
@@ -23,19 +24,12 @@ class HomeContent extends StatelessWidget {
             children: <Widget>[
               Text(
                 'Welcome',
-                style: TextStyle(
-                  color: lightColorScheme.tertiary,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w800,
-                  fontFamily: 'Mont',
-                ),
+                style: heading1(),
               ),
               const SizedBox(height: 8),
-              const Text(
+              Text(
                 'This is the home page.',
-                style: TextStyle(
-                  fontSize: 12,
-                ),
+                style: body1(),
               ),
             ],
           ),

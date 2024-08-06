@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:khp/constants/app_colors.dart';
+import 'package:khp/constants/app_text.dart';
 
 class HomeCard extends StatelessWidget {
   const HomeCard({super.key});
@@ -22,28 +23,18 @@ class HomeCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    const Padding(
-                      padding: EdgeInsets.only(top: 16, left: 16, right: 16),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Text(
                             'Hallo,',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                              fontFamily: 'Mont',
-                            ),
+                            style: hero2(),
                           ),
                           Text(
                             'Andreas!',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 32,
-                              fontWeight: FontWeight.w900,
-                              fontFamily: 'Mont',
-                            ),
+                            style: hero1(),
                           ),
                         ],
                       ),

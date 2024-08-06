@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:khp/components/navigation/top_app_bar.dart';
 import 'package:khp/constants/app_colors.dart';
+import 'package:khp/constants/app_text.dart';
 
 class CameraPage extends StatelessWidget {
   const CameraPage({super.key});
@@ -34,12 +35,7 @@ class CameraPage extends StatelessWidget {
                   children: <Widget>[
                     Text(
                       'Recent',
-                      style: TextStyle(
-                        color: lightColorScheme.tertiary,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w800,
-                        fontFamily: 'Mont',
-                      ),
+                      style: heading1(),
                     ),
                     const SizedBox(height: 8),
                     Container(
@@ -52,18 +48,21 @@ class CameraPage extends StatelessWidget {
                       ),
                       height: 256,
                       width: MediaQuery.of(context).size.width,
-                      child: const Column(
+                      child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          Icon(Icons.landscape_rounded, size: 128),
-                          Text('No Recent Images'),
+                          Icon(Icons.landscape_rounded, size: 128, color: lightColorScheme.tertiary),
+                          Text(
+                            'No Recent Images',
+                            style: heading2(),
+                          ),
                         ],
                       ),
                     ),
                     const SizedBox(height: 32),
-                    const Text(
+                    Text(
                       'Take your first picture now! Use the button below to get started.',
-                      style: TextStyle(fontSize: 12),
+                      style: body1(),
                     )
                   ],
                 ),
@@ -84,18 +83,14 @@ class CameraPage extends StatelessWidget {
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all<Color>(lightColorScheme.secondary),
                     ),
-                    child: const Row(
+                    child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Icon(Icons.camera_rounded),
-                        SizedBox(width: 8),
+                        const Icon(Icons.camera_rounded),
+                        const SizedBox(width: 8),
                         Text(
                           'Use the Camera',
-                          style: TextStyle(
-                            fontFamily: 'Mont',
-                            fontWeight: FontWeight.w800,
-                            fontSize: 20,
-                          ),
+                          style: heading1(),
                         ),
                       ],
                     ),

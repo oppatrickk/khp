@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:khp/components/navigation/top_app_bar.dart';
 import 'package:khp/constants/app_colors.dart';
+import 'package:khp/constants/app_text.dart';
 
 class GalleryPage extends StatelessWidget {
   const GalleryPage({super.key});
@@ -34,12 +35,7 @@ class GalleryPage extends StatelessWidget {
                   children: <Widget>[
                     Text(
                       'Images',
-                      style: TextStyle(
-                        color: lightColorScheme.tertiary,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w800,
-                        fontFamily: 'Mont',
-                      ),
+                      style: heading1(),
                     ),
                     const SizedBox(height: 8),
                     Container(
@@ -60,15 +56,18 @@ class GalleryPage extends StatelessWidget {
                             size: 128,
                             color: lightColorScheme.tertiary,
                           ),
-                          const Text('No Saved Images Yet'),
+                          Text(
+                            'No Saved Images Yet',
+                            style: heading2(),
+                          ),
                         ],
                       ),
                     ),
                     const SizedBox(height: 32),
-                    const Center(
+                    Center(
                       child: Text(
                         'Here you can see all the pictures you took.',
-                        style: TextStyle(fontSize: 12),
+                        style: body1(),
                       ),
                     )
                   ],
@@ -77,15 +76,11 @@ class GalleryPage extends StatelessWidget {
               Center(
                 child: FilledButton(
                   onPressed: () {},
-                  child: const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
                     child: Text(
                       'Take a Picture',
-                      style: TextStyle(
-                        fontFamily: 'Mont',
-                        fontWeight: FontWeight.w700,
-                        fontSize: 12,
-                      ),
+                      style: body1(),
                     ),
                   ),
                 ),

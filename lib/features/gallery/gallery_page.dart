@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:khp/components/loading_indicator/loading_indicator.dart';
 import 'package:khp/components/navigation/top_app_bar.dart';
 import 'package:khp/constants/app_colors.dart';
 import 'package:khp/features/gallery/widgets/gallery_null.dart';
@@ -90,7 +91,9 @@ class _GalleryPageState extends State<GalleryPage> {
             future: _imageFiles,
             builder: (BuildContext context, AsyncSnapshot<List<FileSystemEntity>> snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return const Center(child: CircularProgressIndicator());
+                return const Center(
+                  child: LoadingIndicator(),
+                );
               } else if (snapshot.hasError) {
                 return Center(child: Text('Error: ${snapshot.error}'));
               } else if (!snapshot.hasData || snapshot.data!.isEmpty) {

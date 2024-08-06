@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:khp/components/loading_indicator/loading_indicator.dart';
 import 'package:khp/constants/app_colors.dart';
 
 class ImagePreview extends StatelessWidget {
@@ -37,12 +38,8 @@ class ImagePreview extends StatelessWidget {
         future: _loadImage(),
         builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(
-              child: CircularProgressIndicator(
-                valueColor: AlwaysStoppedAnimation<Color>(
-                  lightColorScheme.primary,
-                ),
-              ),
+            return const Center(
+              child: LoadingIndicator(),
             );
           } else if (snapshot.hasError) {
             return Center(

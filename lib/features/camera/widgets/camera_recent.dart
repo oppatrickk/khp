@@ -2,15 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:khp/constants/app_colors.dart';
 import 'package:khp/constants/app_text.dart';
 
-class CameraNull extends StatelessWidget {
-  const CameraNull({
+class CameraRecent extends StatelessWidget {
+  const CameraRecent({
     super.key,
+    required this.image,
   });
+
+  final dynamic image;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(32.0),
+      padding: const EdgeInsets.only(top: 32.0, left: 32.0, right: 32.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -23,28 +26,29 @@ class CameraNull extends StatelessWidget {
             decoration: BoxDecoration(
               border: Border.all(
                 color: lightColorScheme.tertiary,
-                width: 0.5,
+                width: 1,
               ),
               borderRadius: const BorderRadius.all(Radius.circular(16)),
             ),
             height: 256,
             width: MediaQuery.of(context).size.width,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Icon(Icons.landscape_rounded, size: 128, color: lightColorScheme.tertiary),
-                Text(
-                  'No Recent Images',
-                  style: heading2(),
-                ),
-              ],
+            child: ClipRRect(
+              borderRadius: const BorderRadius.all(Radius.circular(16)),
+              child: Image.file(
+                image,
+                fit: BoxFit.cover,
+                width: MediaQuery.of(context).size.width,
+                height: 256,
+              ),
             ),
           ),
           const SizedBox(height: 32),
-          Text(
-            'Take your first picture now! Use the button below to get started.',
-            style: body1(),
-            textAlign: TextAlign.justify,
+          Center(
+            child: Text(
+              'Use the button below to capture more awesome pictures!',
+              style: body1(),
+              textAlign: TextAlign.center,
+            ),
           ),
         ],
       ),

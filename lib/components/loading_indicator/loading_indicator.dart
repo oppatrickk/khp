@@ -7,9 +7,11 @@ class LoadingIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LoadingAnimationWidget.staggeredDotsWave(
-      color: lightColorScheme.secondary,
-      size: 48,
+    return Center(
+      child: LoadingAnimationWidget.staggeredDotsWave(
+        color: lightColorScheme.secondary,
+        size: 48,
+      ),
     );
   }
 }

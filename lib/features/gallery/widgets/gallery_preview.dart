@@ -38,9 +38,7 @@ class ImagePreview extends StatelessWidget {
         future: _loadImage(),
         builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(
-              child: LoadingIndicator(),
-            );
+            return const LoadingIndicator();
           } else if (snapshot.hasError) {
             return Center(
               child: Text(

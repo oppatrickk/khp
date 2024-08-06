@@ -91,9 +91,7 @@ class _GalleryPageState extends State<GalleryPage> {
             future: _imageFiles,
             builder: (BuildContext context, AsyncSnapshot<List<FileSystemEntity>> snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return const Center(
-                  child: LoadingIndicator(),
-                );
+                return const LoadingIndicator();
               } else if (snapshot.hasError) {
                 return Center(child: Text('Error: ${snapshot.error}'));
               } else if (!snapshot.hasData || snapshot.data!.isEmpty) {

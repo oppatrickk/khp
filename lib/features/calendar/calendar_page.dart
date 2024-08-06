@@ -14,34 +14,32 @@ class CalendarPage extends StatelessWidget {
         icon: Icons.calendar_month_rounded,
       ),
       backgroundColor: lightColorScheme.primary,
-      body: Expanded(
-        child: Container(
-          decoration: BoxDecoration(
-            color: lightColorScheme.background,
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(24),
-              topRight: Radius.circular(24),
-            ),
+      body: Container(
+        decoration: BoxDecoration(
+          color: lightColorScheme.background,
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(24),
+            topRight: Radius.circular(24),
           ),
-          width: MediaQuery.of(context).size.width,
-          child: Padding(
-            padding: const EdgeInsets.all(32),
-            child: TableCalendar<dynamic>(
-              firstDay: DateTime.utc(2024, 1, 1),
-              lastDay: DateTime.utc(2024, 12, 31),
-              focusedDay: DateTime.now(),
-              calendarStyle: CalendarStyle(
-                todayDecoration: BoxDecoration(
-                  color: lightColorScheme.secondary,
-                  shape: BoxShape.circle,
-                ),
-                todayTextStyle: const TextStyle(fontWeight: FontWeight.w600, color: Colors.white),
+        ),
+        width: MediaQuery.of(context).size.width,
+        child: Padding(
+          padding: const EdgeInsets.all(32),
+          child: TableCalendar<dynamic>(
+            firstDay: DateTime.utc(2024, 1, 1),
+            lastDay: DateTime.utc(2024, 12, 31),
+            focusedDay: DateTime.now(),
+            calendarStyle: CalendarStyle(
+              todayDecoration: BoxDecoration(
+                color: lightColorScheme.secondary,
+                shape: BoxShape.circle,
               ),
-              headerStyle: const HeaderStyle(
-                titleCentered: true,
-                formatButtonVisible: false,
-                titleTextStyle: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
-              ),
+              todayTextStyle: const TextStyle(fontWeight: FontWeight.w600, color: Colors.white),
+            ),
+            headerStyle: const HeaderStyle(
+              titleCentered: true,
+              formatButtonVisible: false,
+              titleTextStyle: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
             ),
           ),
         ),

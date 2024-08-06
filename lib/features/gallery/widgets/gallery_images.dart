@@ -49,7 +49,7 @@ class _GalleryImagesState extends State<GalleryImages> {
                   style: heading1(),
                 ),
                 Text(
-                  ' ${widget.images.length} photos',
+                  widget.images.length != 1 ? ' ${widget.images.length} photos' : '1 photo',
                   style: body1(),
                 ),
               ],

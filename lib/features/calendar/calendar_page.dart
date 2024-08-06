@@ -30,9 +30,17 @@ class CalendarPage extends StatelessWidget {
               firstDay: DateTime.utc(2024, 1, 1),
               lastDay: DateTime.utc(2024, 12, 31),
               focusedDay: DateTime.now(),
+              calendarStyle: CalendarStyle(
+                todayDecoration: BoxDecoration(
+                  color: lightColorScheme.secondary,
+                  shape: BoxShape.circle,
+                ),
+                todayTextStyle: const TextStyle(fontWeight: FontWeight.w600, color: Colors.white),
+              ),
               headerStyle: const HeaderStyle(
                 titleCentered: true,
                 formatButtonVisible: false,
+                titleTextStyle: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
               ),
             ),
           ),

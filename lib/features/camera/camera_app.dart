@@ -40,7 +40,7 @@ class CameraApp extends StatelessWidget {
           sensorConfig: SensorConfig.single(
             sensor: Sensor.position(SensorPosition.back),
             flashMode: FlashMode.none,
-            aspectRatio: CameraAspectRatios.ratio_4_3,
+            aspectRatio: CameraAspectRatios.ratio_16_9,
             zoom: 0.0,
           ),
           enablePhysicalButton: true,

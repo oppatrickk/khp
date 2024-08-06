@@ -2,14 +2,35 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:khp/constants/app_text.dart';
 import 'package:khp/features/gallery/widgets/gallery_preview.dart';
+import 'package:khp/constants/app_colors.dart'; // Ensure this import for lightColorScheme
 
-class GalleryImages extends StatelessWidget {
+class GalleryImages extends StatefulWidget {
   const GalleryImages({
     super.key,
     required this.images,
+    required this.onSelectionChanged,
   });
 
   final List<FileSystemEntity> images;
+  final ValueChanged<List<FileSystemEntity>> onSelectionChanged;
+
+  @override
+  State<GalleryImages> createState() => _GalleryImagesState();
+}
+
+class _GalleryImagesState extends State<GalleryImages> {
+  List<FileSystemEntity> selectedImages = <FileSystemEntity>[];
+
+  void _toggleSelection(FileSystemEntity image) {
+    setState(() {
+      if (selectedImages.contains(image)) {
+        selectedImages.remove(image);
+      } else {
+        selectedImages.add(image);
+      }
+      widget.onSelectionChanged(selectedImages);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,9 +41,18 @@ class GalleryImages extends StatelessWidget {
         SliverToBoxAdapter(
           child: Padding(
             padding: const EdgeInsets.only(top: 32.0, bottom: 16.0),
-            child: Text(
-              'Images',
-              style: heading1(),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text(
+                  'Images',
+                  style: heading1(),
+                ),
+                Text(
+                  ' ${widget.images.length} photos',
+                  style: body1(),
+                ),
+              ],
             ),
           ),
         ),
@@ -34,26 +64,43 @@ class GalleryImages extends StatelessWidget {
           ),
           delegate: SliverChildBuilderDelegate(
             (BuildContext context, int index) {
+              final FileSystemEntity image = widget.images[index];
+              final bool isSelected = selectedImages.contains(image);
+
               return GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute<dynamic>(
-                      builder: (BuildContext context) => ImagePreview(imagePath: images[index].path),
-                    ),
-                  );
+                  if (selectedImages.isEmpty) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute<dynamic>(
+                        builder: (BuildContext context) => ImagePreview(
+                          imagePath: image.path,
+                          title: 'Image ${index + 1}',
+                        ),
+                      ),
+                    );
+                  } else {
+                    _toggleSelection(image);
+                  }
                 },
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8.0),
-                  child: Image.file(
-                    File(images[index].path),
-                    fit: BoxFit.cover,
-                    cacheWidth: (350 * devicePixelRatio).round(),
+                onLongPress: () => _toggleSelection(image),
+                child: Container(
+                  decoration: BoxDecoration(
+                    border: isSelected ? Border.all(color: lightColorScheme.secondary, width: 4.0) : null,
+                    borderRadius: BorderRadius.circular(12.0),
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8.0),
+                    child: Image.file(
+                      File(image.path),
+                      fit: BoxFit.cover,
+                      cacheWidth: (350 * devicePixelRatio).round(),
+                    ),
                   ),
                 ),
               );
             },
-            childCount: images.length,
+            childCount: widget.images.length,
           ),
         ),
         const SliverToBoxAdapter(

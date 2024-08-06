@@ -7,11 +7,13 @@ class TopAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.appBarHeight,
     required this.title,
     required this.icon,
+    this.actions,
   });
 
   final double? appBarHeight;
   final String title;
   final IconData icon;
+  final List<Widget>? actions;
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +29,7 @@ class TopAppBar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: lightColorScheme.primary,
       foregroundColor: Colors.white,
       titleSpacing: 0,
+      actions: actions,
     );
   }
 

@@ -16,6 +16,7 @@ class GalleryPage extends StatefulWidget {
 
 class _GalleryPageState extends State<GalleryPage> {
   late Future<List<FileSystemEntity>> _imageFiles;
+  List<FileSystemEntity> selectedImages = <FileSystemEntity>[];
 
   @override
   void initState() {
@@ -37,12 +38,36 @@ class _GalleryPageState extends State<GalleryPage> {
     return files;
   }
 
+  void _onSelectionChanged(List<FileSystemEntity> selected) {
+    setState(() {
+      selectedImages = selected;
+    });
+  }
+
+  void _deleteSelectedImages() {
+    for (final FileSystemEntity image in selectedImages) {
+      image.deleteSync();
+    }
+    setState(() {
+      _imageFiles = _loadImages();
+      selectedImages.clear();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const TopAppBar(
+      appBar: TopAppBar(
         title: 'Gallery',
         icon: Icons.photo_size_select_actual_rounded,
+        actions: selectedImages.isNotEmpty
+            ? <Widget>[
+                IconButton(
+                  icon: const Icon(Icons.delete_rounded),
+                  onPressed: _deleteSelectedImages,
+                ),
+              ]
+            : null,
       ),
       backgroundColor: lightColorScheme.primary,
       body: Container(
@@ -70,7 +95,10 @@ class _GalleryPageState extends State<GalleryPage> {
                       } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
                         return const GalleryNull();
                       } else {
-                        return GalleryImages(images: snapshot.data!);
+                        return GalleryImages(
+                          images: snapshot.data!,
+                          onSelectionChanged: _onSelectionChanged,
+                        );
                       }
                     },
                   ),

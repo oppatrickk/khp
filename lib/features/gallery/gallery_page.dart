@@ -38,6 +38,12 @@ class _GalleryPageState extends State<GalleryPage> {
     return files;
   }
 
+  Future<void> _refreshImages() async {
+    setState(() {
+      _imageFiles = _loadImages();
+    });
+  }
+
   void _onSelectionChanged(List<FileSystemEntity> selected) {
     setState(() {
       selectedImages = selected;
@@ -78,36 +84,34 @@ class _GalleryPageState extends State<GalleryPage> {
             topRight: Radius.circular(24),
           ),
         ),
-        width: MediaQuery.of(context).size.width,
-        child: Expanded(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 32.0),
-            child: Column(
-              children: <Widget>[
-                Flexible(
-                  child: FutureBuilder<List<FileSystemEntity>>(
-                    future: _imageFiles,
-                    builder: (BuildContext context, AsyncSnapshot<List<FileSystemEntity>> snapshot) {
-                      if (snapshot.connectionState == ConnectionState.waiting) {
-                        return const Center(child: CircularProgressIndicator());
-                      } else if (snapshot.hasError) {
-                        return Center(child: Text('Error: ${snapshot.error}'));
-                      } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                        return const GalleryNull();
-                      } else {
-                        return GalleryImages(
-                          images: snapshot.data!,
-                          onSelectionChanged: _onSelectionChanged,
-                        );
-                      }
-                    },
+        child: RefreshIndicator(
+          onRefresh: _refreshImages,
+          child: FutureBuilder<List<FileSystemEntity>>(
+            future: _imageFiles,
+            builder: (BuildContext context, AsyncSnapshot<List<FileSystemEntity>> snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const Center(child: CircularProgressIndicator());
+              } else if (snapshot.hasError) {
+                return Center(child: Text('Error: ${snapshot.error}'));
+              } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                return ListView(
+                  padding: const EdgeInsets.symmetric(horizontal: 32.0),
+                  children: const <Widget>[
+                    GalleryNull(),
+                  ],
+                );
+              } else {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 32.0),
+                  child: GalleryImages(
+                    images: snapshot.data!,
+                    onSelectionChanged: _onSelectionChanged,
                   ),
-                ),
-              ],
-            ),
+                );
+              }
+            },
           ),
         ),
-        // GalleryNull(),
       ),
     );
   }

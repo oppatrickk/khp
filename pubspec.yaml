@@ -16,6 +16,7 @@ dependencies:
   cross_file: ^0.3.4+2
   better_open_file: ^3.6.5
   path_provider: ^2.1.4
+  loading_animation_widget: ^1.2.1
 
 dev_dependencies:
   flutter_test:

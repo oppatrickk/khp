@@ -29,7 +29,7 @@ class HomeCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Text(
-                            'Hallo,',
+                            'Hallooooo,',
                             style: hero2(),
                           ),
                           Text(

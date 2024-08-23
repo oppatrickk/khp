@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:khp/constants/app_colors.dart';
 import 'package:khp/constants/app_text.dart';
-import 'package:khp/features/camera/camera_app.dart';
+// import 'package:khp/features/camera/camera_app.dart';
+import 'package:khp/features/camera/camera_barcode.dart';
 
 class CameraButton extends StatelessWidget {
   const CameraButton({
@@ -26,7 +27,7 @@ class CameraButton extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute<void>(
-                builder: (BuildContext context) => const CameraApp(),
+                builder: (BuildContext context) => const CameraBarcodeApp(),
               ),
             );
           },
